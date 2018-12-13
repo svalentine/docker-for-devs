@@ -1,4 +1,5 @@
-# Some basic commands #
+# A quick run through the other docker commands #
+
 
 ## docker ps ##
 Lets find the container:
@@ -19,7 +20,7 @@ You should have output similar to:
 
 ```
 CONTAINER ID     IMAGE                COMMAND   CREATED             STATUS                         PORTS  NAMES
-8685dc4f77e7    hello-world:latest   "/hello"  About an hour ago   Exited (0) About an hour ago           adoring_jang
+8685dc4f77e7     hello-world:latest   "/hello"  About an hour ago   Exited (0) About an hour ago           adoring_jang
 ```
 
 ## docker images ##
