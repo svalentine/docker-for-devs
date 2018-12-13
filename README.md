@@ -1,25 +1,43 @@
-# docker-for-developers #
+# Checking your install #
 
-Docker for Developers Knowledge Share
+## First, some concepts ##
 
-## Requirements ##
+### What is an image? ###
 
-- [Docker CE](https://docs.docker.com/install/)
-- [Docker Compose](https://docs.docker.com/compose/)
-- [Git](https://www.git-scm.com/download)
-- A text editor of your choice
+An image is an executable package that includes everything needed to run an application - the code, a runtime, libraries, environment variables, and configuration files.
 
-The mac version comes with docker-compose however I _think_ the linux version does not.
+### What is a container? ###
+
+A container is a runtime instance of an image - what the image becomes in memory when executed (that is, an image with state, or a user process).
 
 ## Getting Started ##
 
-Clone this repository to your system. check that docker and docker compose are installed and functional with
+Lets check out initial install: 
 
-- `docker -v` - Should return something like `Docker version 18.09.0, build 4d60db4`
-- `docker-composer -v` - should return something like `docker-compose version 1.23.2, build 1110ad01`
+```bash
+docker run hello-world:latest
+```
+
+You should get some output sent to your terminal
+```
+unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+d1725b59e92d: Pull complete
+Digest: sha256:0add3ace90ecb4adbf7777e9aacf18357296e799f81cabc9fde470971e499788
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+...
+```
+
+As you can see, docker downloaded the image from docker hub (more on this later), and ran it.
 
 ## Next steps ##
 
 ```bash
-git checkout slide-1
+git checkout slide-2
 ```
+
+## More information ##
+
+You can also get more info directly from their getting started guide at https://docs.docker.com/get-started/
