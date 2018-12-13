@@ -1,41 +1,49 @@
-# Checking your install #
+# Some basic commands #
 
-## First, some concepts ##
-
-### What is an image? ###
-
-An image is an executable package that includes everything needed to run an application - the code, a runtime, libraries, environment variables, and configuration files.
-
-### What is a container? ###
-
-A container is a runtime instance of an image - what the image becomes in memory when executed (that is, an image with state, or a user process).
-
-## Getting Started ##
-
-Lets check out initial install: 
+## docker ps ##
+Lets find the container:
 
 ```bash
-docker run hello-world:latest
+docker ps 
 ```
 
-You should get some output sent to your terminal
-```
-unable to find image 'hello-world:latest' locally
-latest: Pulling from library/hello-world
-d1725b59e92d: Pull complete
-Digest: sha256:0add3ace90ecb4adbf7777e9aacf18357296e799f81cabc9fde470971e499788
-Status: Downloaded newer image for hello-world:latest
+You will notice that there is no output for the hello-world application earlier. That is because docker ps only shows _running_ containers. 
 
-Hello from Docker!
-...
+Let us instead try
+
+```bash
+docker ps -a
 ```
 
-As you can see, docker downloaded the image from docker hub (more on this later), and ran it.
+You should have output similar to:
+
+```
+CONTAINER ID     IMAGE                COMMAND   CREATED             STATUS                         PORTS  NAMES
+8685dc4f77e7    hello-world:latest   "/hello"  About an hour ago   Exited (0) About an hour ago           adoring_jang
+```
+
+## docker images ##
+Now that we have run something with docker, lets take a look at our status.
+If you already have have other images + containers then your output may look different.
+
+Lets find the image:
+```bash
+docker images
+```
+
+Your output should contain
+```
+REPOSITORY        TAG       IMAGE ID      CREATED       SIZE
+hello-world       latest    4ab4c602aa5e  3 months ago  1.84kB
+....
+```
+
+This is the basic image that you ran in step 1.
 
 ## Next steps ##
 
 ```bash
-git checkout slide-2
+git checkout slide-3
 ```
 
 ## More information ##
