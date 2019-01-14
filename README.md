@@ -1,20 +1,5 @@
 # Creating Images #
 
-## Aim ##
-
-In this example, we will be creating a basic PHP application with it's infrastructure.
-The infrastructure will contain 
-
-- nginx (as the web server)
-- php-fpm (as the interpreter)
-- mysql (as the data storage layer)
-- memcached (as the cache layer)
-
-If there is time, we can also attempt to create a queue producer and consumer. This will require
-
-- rabbitmq (as broker)
-- golang (as the consumer)
-
 ## Dockerfile ##
 
 For the canonical documentation on Dockerfiles, be sure to check out https://docs.docker.com/engine/reference/builder/ & https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
