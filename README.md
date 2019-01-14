@@ -1,39 +1,48 @@
-# Creating Images #
+# Introducing docker-compose #
 
-## Builder Pattern ##
+## Documentation ##
 
-Multi-stage builds are a new feature requiring Docker 17.05 or higher on the
-daemon and client. Multi-Stage builds are useful to anyone who has struggled to
-optimize Dockerfiles while keeping them easy to read and maintain.
+The documentation for docker-compose is available here: https://docs.docker.com/compose/,
+or more specifically at https://docs.docker.com/compose/compose-file/
 
-In the previous slide we extended a basic nginx container with some content, 
-lets look at extending that with the builder pattern.
+Most options aren't useful for developers (c-groups, dns settings). We will look 
+at some common configurations here:
 
-The [Dockerfile](./Dockerfile) we will be using is in the root of this project.
-In order to see how this container is built, lets take a look at
+- context: https://docs.docker.com/compose/compose-file/#context
+- dockerfile: https://docs.docker.com/compose/compose-file/#dockerfile
+- args: https://docs.docker.com/compose/compose-file/#args
+- labels: https://docs.docker.com/compose/compose-file/#labels & https://docs.docker.com/config/labels-custom-metadata/ 
+- depends_on: https://docs.docker.com/compose/compose-file/#depends_on
+- entrypoint: https://docs.docker.com/compose/compose-file/#entrypoint
+- environment (and env_file): Compare with secrets - https://docs.docker.com/compose/compose-file/#environment & https://docs.docker.com/compose/compose-file/#env_file
+- expose: https://docs.docker.com/compose/compose-file/#expose (Compare with ports)
+- extra_hosts: https://docs.docker.com/compose/compose-file/#extra_hosts
+- image: https://docs.docker.com/compose/compose-file/#image
+- labels: https://docs.docker.com/compose/compose-file/#labels
+- links (depreciated): https://docs.docker.com/compose/compose-file/#links
+- networks: https://docs.docker.com/compose/compose-file/#networks
+- ports: https://docs.docker.com/compose/compose-file/#ports
+- secrets: https://docs.docker.com/compose/compose-file/#secrets
+- volumes: https://docs.docker.com/compose/compose-file/#volumes
 
-Now we can build the image with:
+You will notice that I embed the options for several of these options within my `Dockerfile`.
+Discuss pro's and con's
 
-- Build Image: `docker build -t nginx:docker-for-devs-builder-pattern .`
-- Run Container: `docker run --name nginx-builder-pattern -d -p 8080:80 nginx:docker-for-devs-builder-pattern`
-- Check at: http://localhost:8080/
+## Aim ##
 
-## Other Optimisations ##
+In the next few slides, we will be creating a basic PHP application with it's infrastructure.
+The infrastructure will contain
 
-In my previous employment, the system contained over 10 in-house micro-services
-for the basic system. We found it was significantly easier to create builder
-images once and push them to a docker repository, and then simply pull them
-in and run the commands. In this example there would be no need to do the apt-get
-commands, making reading the Dockerfile significantly easier. In fact, all images
-were based on private repositories for auditability.
+- nginx (as the web server)
+- php-fpm (as the interpreter)
+- mysql (as the data storage layer)
+- memcached (as the cache layer)
+- rabbitmq (as broker)
+- golang (as the consumer)
 
-## Clean up ##
+## Configuration Options ##
 
-Cleaning up with:
-
-- `docker stop nginx-builder-pattern ` to stop the running container.
-- `docker rm nginx-builder-pattern ` to remove the running container.
-- `docker rmi nginx:docker-for-devs-builder-pattern` to remove the underlying image.
+At this point you should have a basic understanding of the options that go into compose and Dockerfiles.
 
 ## Next steps ##
 
