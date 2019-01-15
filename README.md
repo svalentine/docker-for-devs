@@ -25,7 +25,7 @@ at some common configurations here:
 - secrets: https://docs.docker.com/compose/compose-file/#secrets
 - volumes: https://docs.docker.com/compose/compose-file/#volumes
 
-You will notice that I embed the options for several of these options within my `Dockerfile`.
+You will notice that I embed the options for several of these options within my `*Dockerfile`.
 Discuss pro/con
 
 ## Aim ##
@@ -46,10 +46,16 @@ At this point you should have a basic understanding of the options that go into 
 
 ## Next steps ##
 
-```bash
-git checkout slide-5
-```
+AND DONE !
 
-## More information ##
+## Some things to try ##
 
-You can also get more info directly from their getting started guide at https://docs.docker.com/get-started/
+How would you streamline this docker-compose*.yml ?
+
+### Extending Memcached ###
+
+Lets assume that you discover that the memcached default size of 64MB is
+insufficient for your needs.
+
+You decide to create a new layer that allows the size of the cache to be determined 
+from an environment variable. How do you implement it?

@@ -13,7 +13,10 @@ services:
       RABBITMQ_HIPE_COMPILE: 0
       RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
       RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
-
+    ports:
+     - "5672:5672"
+     - "15672:15672"
+     
 # https://hub.docker.com/_/mysql
   mysql:
     image: mysql:8.0.13
@@ -27,15 +30,15 @@ services:
     volumes:
       - db-data:/var/lib
 
-# https://hub.docker.com/_/nginx
-  nginx:
+# https://hub.docker.com/_/php
+  apache:
     build:
       context: .
-      dockerfile: nginx.Dockerfile
+      dockerfile: apache.Dockerfile
     environment: 
-      NGINX_HOSTNAME: ${NGINX_HOSTNAME}
+      FEATURE_FLAG: ${FEATURE_FLAG}
     ports: 
-      - "${NGINX_PORT}:80"
+      - "${WWW_PORT}:80"
 
   consumer:
     build:

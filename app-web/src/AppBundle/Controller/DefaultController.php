@@ -23,7 +23,8 @@ class DefaultController extends Controller
         $session->start();
         $sessionId = $session->getId();
 
-        $cache = $this->get('doctrine_cache.providers.sc_memcached');
+        //$cache = $this->get('doctrine_cache.providers.sc_memcached');
+        $cache = $this->get('doctrine_cache.providers.sc_filecache');
 
         $sessionCounter = 0;
         if ($cache->contains('session_visit'.$sessionId)) {

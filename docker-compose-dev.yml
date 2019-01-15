@@ -16,5 +16,10 @@ services:
   consumer:
     volumes:
       - ./infrastructure/consumer/config.yml:/app/config.yml
+
+  apache:
+    volumes:
+      - ./app-web:/app
+
       
 

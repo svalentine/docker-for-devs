@@ -12,17 +12,16 @@ RUN set -ex ; \
         libmemcached-dev \
         wget \
         zlib1g-dev ; \    
-    wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz ; \
-    tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz ; \
-    rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz ; \
-    mv /infrastructure/*.tmpl /opt/templates ; \
+    rm -f /etc/apache2/sites-enabled/*.conf ; \
+    mv /infrastructure/default.conf.tmpl /etc/apache2/sites-enabled/default.conf ; \
+    mv /infrastructure/docker-entrypoint.sh /docker-entrypoint.sh ; \
     docker-php-ext-install bcmath ; \
     docker-php-ext-enable bcmath ; \
     docker-php-ext-install sockets ; \
     docker-php-ext-enable sockets ; \
-    wget https://getcomposer.org/installer -O - | php -- --install-dir=/usr/local/bin --filename=composer ; \
-    cd /app ; \
-    composer install
+    wget https://getcomposer.org/installer -O - | php -- --install-dir=/usr/local/bin --filename=composer 
+#    cd /app # ; \
+#    composer install
 
 WORKDIR /app
-# ENTRYPOINT [ "/docker-entrypoint.sh" ]
+ENTRYPOINT [ "/docker-entrypoint.sh" ]
