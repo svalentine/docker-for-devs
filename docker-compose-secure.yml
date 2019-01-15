@@ -1,0 +1,29 @@
+version: "3.5"
+
+services:
+  mysql:
+    image: mysql:8.0.13
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    ports:
+        - "${MYSQL_PORT}:3306"
+    volumes:
+      - db-data:/var/lib
+    secrets:
+      - source: mysql_user_credentials
+        target: /run/secrets/mysql-user
+        uid: '0'
+        gid: '0'
+        mode: 0440
+      - source: mysql_password_credentials
+        target: /run/secrets/mysql-password
+        uid: '0'
+        gid: '0'
+        mode: 0440
+
+secrets:
+  mysql_user_credentials:
+    file: ./mysql-user.txt
+  mysql_password_credentials:
+    file: ./mysql-pass.txt

@@ -26,7 +26,7 @@ at some common configurations here:
 - volumes: https://docs.docker.com/compose/compose-file/#volumes
 
 You will notice that I embed the options for several of these options within my `Dockerfile`.
-Discuss pro's and con's
+Discuss pro/con
 
 ## Aim ##
 

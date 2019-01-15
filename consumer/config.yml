@@ -1,0 +1,3 @@
+rabbit_dsn: amqp://admin:secret@localhost:5672/
+rabbit_queue: example
+

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Session Counters</h2>
+    <p>Global Counter {{ globalCounter }}</p>
+    <p>Session Counter {{ sessionCounter }}</p>
+    <p>Application Base Directory {{ baseDir }}</p>
+    <h2>Publish a message</h2>
+    <p>
+        {{ form_start(form) }}
+        {{ form_end(form) }}
+    </p>
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
