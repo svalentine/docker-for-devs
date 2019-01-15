@@ -54,10 +54,10 @@ clean: stop
 	docker-compose -p $(PROJECT_NAME) -f docker-compose.yml down
 
 bash:
-	docker-compose -p $(PROJECT_NAME) -f docker-compose.yml exec --user jmeter jmeter bash
+	docker-compose -p $(PROJECT_NAME) -f docker-compose.yml exec --user ww-data apache bash
 
 bash-root:
-	docker-compose -p $(PROJECT_NAME) -f docker-compose.yml exec --user root jmeter bash
+	docker-compose -p $(PROJECT_NAME) -f docker-compose.yml exec --user root apache bash
 
 test-dev:
 	docker-compose -p $(PROJECT_NAME) -f docker-compose.yml -f docker-compose-dev.yml config
