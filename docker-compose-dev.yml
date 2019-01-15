@@ -12,3 +12,9 @@ services:
         - "${MYSQL_PORT}:3306"
     volumes:
       - ./infrastructure/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+
+  consumer:
+    volumes:
+      - ./infrastructure/consumer/config.yml:/app/config.yml
+      
+

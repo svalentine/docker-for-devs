@@ -28,6 +28,13 @@ secure:
 image:
 	docker build $(BUILD_OPS) -t $(IMAGE_REPO)/$(PROJECT_NAME):$(IMAGE_TAG) -f Dockerfile .
 
+image-consumer:
+	docker build $(BUILD_OPS) -t $(IMAGE_REPO)/$(PROJECT_NAME)_consumer:$(IMAGE_TAG) -f consumer.Dockerfile .
+
+image-apache:
+	docker build $(BUILD_OPS) -t $(IMAGE_REPO)/$(PROJECT_NAME)_apache:$(IMAGE_TAG) -f apache.Dockerfile .
+
+
 log:
 	docker-compose -p $(PROJECT_NAME) -f docker-compose.yml logs
 

@@ -22,8 +22,19 @@ services:
         gid: '0'
         mode: 0440
 
+  consumer:
+    secrets:
+      - source: consumer_secret
+        target: /app/config.yml
+        uid: '0'
+        gid: '0'
+        mode: 0440
+
 secrets:
   mysql_user_credentials:
     file: ./mysql-user.txt
   mysql_password_credentials:
     file: ./mysql-pass.txt
+  consumer_secret:
+    file: ./infrastructure/consumer/config.yml
+
