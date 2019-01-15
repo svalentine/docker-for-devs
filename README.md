@@ -1,8 +1,30 @@
 # Creating Images #
 
-## Dockerfile ##
+## The documentation ##
 
 For the canonical documentation on Dockerfiles, be sure to check out https://docs.docker.com/engine/reference/builder/ & https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
+
+Take a look through:
+
+- Syntax: https://docs.docker.com/engine/reference/builder/#syntax
+- Environment replacement: https://docs.docker.com/engine/reference/builder/#environment-replacement
+- .dockerignore file: https://docs.docker.com/engine/reference/builder/#dockerignore-file
+- ADD: https://docs.docker.com/engine/reference/builder/#add
+- ARG: https://docs.docker.com/engine/reference/builder/#arg
+- CMD: https://docs.docker.com/engine/reference/builder/#cmd
+- COPY (Compare with ADD): https://docs.docker.com/engine/reference/builder/#copy
+- ENTRYPOINT: https://docs.docker.com/engine/reference/builder/#entrypoint
+- ENV: (Compare with ARG) https://docs.docker.com/engine/reference/builder/#env
+- EXPOSE: https://docs.docker.com/engine/reference/builder/#expose
+- FROM: https://docs.docker.com/engine/reference/builder/#from
+- HEALTHCHECK: https://docs.docker.com/engine/reference/builder/#healthcheck
+- LABEL: https://docs.docker.com/engine/reference/builder/#label
+- RUN: https://docs.docker.com/engine/reference/builder/#run
+- USER: https://docs.docker.com/engine/reference/builder/#user (discuss security concern with root)
+- VOLUME: https://docs.docker.com/engine/reference/builder/#volume
+- WORKDIR: https://docs.docker.com/engine/reference/builder/#workdir
+
+## Dockerfile ##
 
 In this slide, we will start with a basic nginx configuration. Since we are only interested in that single container we will make smaller changes
 
