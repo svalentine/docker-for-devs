@@ -16,7 +16,7 @@ The mac version comes with docker-compose however I _think_ the linux version do
 Clone this repository to your system. check that docker and docker compose are installed and functional with
 
 - `docker -v` - Should return something like `Docker version 18.09.0, build 4d60db4`
-- `docker-composer -v` - should return something like `docker-compose version 1.23.2, build 1110ad01`
+- `docker-compose -v` - should return something like `docker-compose version 1.23.2, build 1110ad01`
 
 ## Next steps ##
 
